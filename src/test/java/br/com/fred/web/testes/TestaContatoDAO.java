@@ -13,7 +13,7 @@ public class TestaContatoDAO {
 		//testaExcluir();
 		//testaBuscarPorId();
 		//testaBuscarTodos();
-		testaSalvar();
+		 testaSalvar();
 		
 	}
 		
@@ -62,9 +62,9 @@ public class TestaContatoDAO {
 	private static void testaAtualizacao() {
 		Contato contato = new Contato();
 			contato.setId(2);
-			contato.setNome("Julia Pereira");
-			contato.setEndereco("Av Aclimação");
-			contato.setEmail("jp@gmail.com");
+			 contato.setNome("Julia Pereira");
+			  contato.setEndereco("Av Aclimação");
+			   contato.setEmail("jp@gmail.com");
 			
 			ContatoDAO dao = new ContatoDAO();
 			dao.atualiza(contato);
@@ -75,8 +75,8 @@ public class TestaContatoDAO {
 	private static void testaAdiciona() {
 			Contato contato = new Contato();
 		    	contato.setNome("Rodrigo Petrilho");
-		    	contato.setEndereco("Rua Imarés");
-		    	contato.setEmail("rpetrilho@gmail.com");
+		    	 contato.setEndereco("Rua Imarés");
+		    	  contato.setEmail("rpetrilho@gmail.com");
 		
 		ContatoDAO dao = new ContatoDAO();
 		dao.adiciona(contato);

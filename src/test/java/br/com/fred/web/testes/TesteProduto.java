@@ -8,7 +8,7 @@ import br.com.fred.web.persistencia.ProdutoDAO;
 public class TesteProduto {
 
 	public static void main(String[] args) {
-		testaCadastrar();
+		 testaCadastrar();
 		//testaExcluir();
 		//testaAtualizar();
 		//testaPesquisarPorId();

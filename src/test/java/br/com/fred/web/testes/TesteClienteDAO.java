@@ -13,7 +13,7 @@ public class TesteClienteDAO {
 		 //testeRemover();
 		 //testaPesquisar();
 		 //testaSalvar();
-		 testePesquisarClPorId();
+		  testePesquisarClPorId();
 		//testePesquisarTodos();
 	}	
 	

@@ -9,7 +9,7 @@ import br.com.fred.web.persistencia.UsuarioDAO;
 
 public class TestaUsuarioDAO {
 
-	public static void main(String[] args) {
+	 public static void main(String[] args) {
 		//testaCadastrar();
 		//testaAtualizar();
 		testaExcluir();

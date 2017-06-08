@@ -15,22 +15,22 @@ public class ClienteDAO {
 	
 	
 	public void cadastrarCl(Cliente cl) {
-			//Comando SQL
-			String sql = "insert into cliente" + "(nome, rg, cpf, tel)" + "values(?, ?, ?, ?);";
-				//Criando um statment
-				//Com os parenteses, torna-se auto closeable
-				try (PreparedStatement stmt = conexao.prepareStatement(sql)) {							
-					//preenche os "?"
-					stmt.setString (1, cl.getNomeCliente());
-					stmt.setString (2, cl.getRgCliente());
-					stmt.setString (3, cl.getCpfCliente());
-					stmt.setString (4, cl.getTelCliente());
-						stmt.execute();
-				    	} 
-				    catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}
+		//Comando SQL
+		String sql = "insert into cliente" + "(nome, rg, cpf, tel)" + "values(?, ?, ?, ?);";
+			//Criando um statment
+			//Com os parenteses, torna-se auto closeable
+			try (PreparedStatement stmt = conexao.prepareStatement(sql)) {							
+				//preenche os "?"
+				stmt.setString (1, cl.getNomeCliente());
+				 stmt.setString (2, cl.getRgCliente());
+				  stmt.setString (3, cl.getCpfCliente());
+				   stmt.setString (4, cl.getTelCliente());
+				  stmt.execute();
+				 } 
+				catch (SQLException e) {
+			  throw new RuntimeException(e);
+		     }
+		}
 
 	public void atualizarCl (Cliente cl) {			
 			//Comando SQL
@@ -40,16 +40,16 @@ public class ClienteDAO {
 				try (PreparedStatement stmt = conexao.prepareStatement(sql)) {										
 					//preenche os "?"
 					stmt.setString (1, cl.getNomeCliente());
-					stmt.setString (2, cl.getRgCliente());
-					stmt.setString (3, cl.getCpfCliente());
-					stmt.setString (4, cl.getTelCliente());
-					stmt.setInt    (5, cl.getIdCliente());		
-						stmt.execute();		
-					    } 
-					 catch (SQLException e) {
-					 throw new RuntimeException(e);
-				    }
-			     }
+					 stmt.setString (2, cl.getRgCliente());
+					  stmt.setString (3, cl.getCpfCliente());
+					   stmt.setString (4, cl.getTelCliente());
+					    stmt.setInt    (5, cl.getIdCliente());		
+					  stmt.execute();		
+					 } 
+				  catch (SQLException e) {
+				 throw new RuntimeException(e);
+				}
+			  }
 
 			public void removerCl(Cliente cl) {			
 					//Comando SQL
@@ -85,25 +85,25 @@ public class ClienteDAO {
 			//Cliente clRetorno = null;
 			String sql = "select * from cliente where id=?";
 				   try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-						 	stmt.setInt(1, id);
-							  //Tras oresultado total da pesquisa
-							  ResultSet rst = stmt.executeQuery();
-								    //Posicionamentodo cursor noprimeiro registro  
-								    while(rst.next()){
-										 Cliente cl =  new Cliente();
-											 cl.setIdCliente(rst.getInt("id"));
-											 cl.setNomeCliente(rst.getString("nome"));
-											 cl.setRgCliente(rst.getString("rg"));
-											 cl.setCpfCliente(rst.getString("cpf"));
-											 cl.setTelCliente(rst.getString("tel"));
-											 return cl;
-										}
-									  } 
-							catch (SQLException e) {
-							throw new RuntimeException(e);
-						   }
-				            return null;
-						}
+					     stmt.setInt(1, id);
+						        //Tras oresultado total da pesquisa
+						        ResultSet rst = stmt.executeQuery();
+						            //Posicionamentodo cursor noprimeiro registro  
+								    if(rst.next()){
+									Cliente cl =  new Cliente();
+								cl.setIdCliente(rst.getInt("id"));
+							  cl.setNomeCliente(rst.getString("nome"));
+						   cl.setRgCliente(rst.getString("rg"));
+					    cl.setCpfCliente(rst.getString("cpf"));
+				     cl.setTelCliente(rst.getString("tel"));
+			      return cl;
+				 }
+			   } 
+		    catch (SQLException e) {
+		  throw new RuntimeException(e);
+	    }
+    return null;
+   }
 		 
 		/**
 		 * Realiza uma busca de todos os registros da tabela de clientes.
@@ -113,27 +113,27 @@ public class ClienteDAO {
 		public List<Cliente> pesquisarClTodos() {
 			//Cliente clRetorno = null;
 			String sql = "select * from cliente";
-					List<Cliente> clLista = new ArrayList<Cliente>();
-						try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-							  //Tras oresultado total da pesquisa
-							  ResultSet rst = stmt.executeQuery();
-								    //Posicionamentodo cursor noprimeiro registro  
-								    while(rst.next()){
-										 Cliente cl =  new Cliente();
-											 cl.setIdCliente(rst.getInt("id"));
-											 cl.setNomeCliente(rst.getString("nome"));
-											 cl.setRgCliente(rst.getString("rg"));
-											 cl.setCpfCliente(rst.getString("cpf"));
-											 cl.setTelCliente(rst.getString("tel"));
-											 //Adicina usuário na lista
-											 clLista.add(cl);
-											}
-									  } 
-							catch (SQLException e) {
-							throw new RuntimeException(e);
-						   }
-				     return clLista;
+				List<Cliente> clLista = new ArrayList<Cliente>();
+					try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+						//Tras oresultado total da pesquisa
+						ResultSet rst = stmt.executeQuery();
+						//Posicionamentodo cursor noprimeiro registro  
+						    while(rst.next()){
+								Cliente cl =  new Cliente();
+							   cl.setIdCliente(rst.getInt("id"));
+							 cl.setNomeCliente(rst.getString("nome"));
+						   cl.setRgCliente(rst.getString("rg"));
+					      cl.setCpfCliente(rst.getString("cpf"));
+					    cl.setTelCliente(rst.getString("tel"));
+		            //Adicina usuário na lista
+					clLista.add(cl);
 					}
+				} 
+			catch (SQLException e) {
+		throw new RuntimeException(e);
+	   }
+	return clLista;
+   }
 			
 
 

@@ -33,7 +33,7 @@ public class Produto {
 			this.valorP = valorP;
 		}
 		
-			@Override
+		@Override
 			public String toString() {
 				return "Produto [idP=" + idP + ", nomeP=" + nomeP + ", categoriaP=" + categoriaP + ", valorP=" + valorP
 					+ "]";

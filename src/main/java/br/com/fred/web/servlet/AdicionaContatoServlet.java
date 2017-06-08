@@ -25,16 +25,16 @@ public class AdicionaContatoServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 			//Buscando parametros no request
 			String nome = req.getParameter("nome");
-			String endereco = req.getParameter("endereco");
-			String email = req.getParameter("email");
+			 String endereco = req.getParameter("endereco");
+			  String email = req.getParameter("email");
 						  
 			  //Fazendo conversão da data
 			 
 			  	//Monta um objeto contato
 			  	Contato contato = new Contato();
 			  	  contato.setNome(nome);
-			  	  contato.setEndereco(endereco);
-			  	  contato.setEmail(email);
+			  	   contato.setEndereco(endereco);
+			  	    contato.setEmail(email);
 			  	 			  	 
 			  	    //Salva o contato no BD
 			  	  	ContatoDAO dao = new ContatoDAO();

@@ -39,6 +39,7 @@ public class Cliente {
 			this.telCliente = telCliente;
 		}
 		
+		
 		@Override
 		public String toString() {
 			return "Cliente [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", rgCliente=" + rgCliente
