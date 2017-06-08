@@ -9,7 +9,13 @@ public class ConnectionFactory {
 	public static Connection getConnection() {
 		
 		try{
-			return DriverManager.getConnection("jdbc:mysql://localhost/minhaWeb", "root", "root");
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			     } 
+			      catch (ClassNotFoundException e) {
+				  throw new RuntimeException(e);
+			     }
+			   return DriverManager.getConnection("jdbc:mysql://localhost/minhaWeb", "root", "root");
 			
 		}
 		catch(SQLException e){
