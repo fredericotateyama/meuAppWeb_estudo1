@@ -12,11 +12,27 @@ public class TestaUsuarioDAO {
 	 public static void main(String[] args) {
 		//testaCadastrar();
 		//testaAtualizar();
-		testaExcluir();
+		//testaExcluir();
 		//testaPesquisarPorId();
 		//testaPesquisarTodos();
 		//testaSalvar();
+		testaAutenticar();
 }
+
+	private static void testaAutenticar() {
+		Usuario usr = new Usuario();
+		  usr.setLogin("clash");
+		   usr.setSenha("123456");
+		     UsuarioDAO dao = new UsuarioDAO();
+	         Usuario usrRetorno = dao.autenticaUsuario(usr);
+	         
+	         if(usrRetorno!= null){
+	        	 System.out.println(usrRetorno);
+	         }
+	         else{
+	        	 System.out.println("Usuario não cadastrado.");
+	         }
+	}
 
 	private static void testaSalvar() {
 		Usuario usr = new Usuario();

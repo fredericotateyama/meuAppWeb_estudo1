@@ -118,7 +118,26 @@ public class UsuarioDAO {
 	}
   }
 
-
+	public Usuario autenticaUsuario(Usuario usrConsulta){
+		String sql ="select * from usuario where login_usr=? and senha_usr=? ";
+		  try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			  stmt.setString(1, usrConsulta.getLogin());
+			    stmt.setString(2, usrConsulta.getSenha());
+			      ResultSet rst = stmt.executeQuery();
+			        if(rst.next()){
+			         Usuario usr = new Usuario();
+			        usr.setId(rst.getInt("id_usr"));	
+			      usr.setLogin(rst.getString("login_usr"));
+			     usr.setSenha(rst.getString("senha_usr"));
+			   return usr;
+			  } 
+		    }
+	      catch (SQLException e) {
+		throw new RuntimeException(e);
+	   }
+	 return null;
+	}
 
 
 
