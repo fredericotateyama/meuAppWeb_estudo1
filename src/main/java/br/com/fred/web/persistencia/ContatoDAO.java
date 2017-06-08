@@ -69,7 +69,7 @@ public class ContatoDAO {
 						PreparedStatement stmt = conector.prepareStatement(sql);
 						  stmt.setInt(1, id);
 						    ResultSet rst = stmt.executeQuery();
-						      while(rst.next()){
+						      if(rst.next()){
 							    Contato contato = new Contato();
 								  contato.setId(rst.getInt("id_contato"));
 									contato.setNome(rst.getString("nome_contato"));
